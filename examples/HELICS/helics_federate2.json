@@ -1,6 +1,6 @@
 {
 	"name": "federate2",
-	"loglevel": 5,
+    "loglevel": "warning",
 	"coreType": "zmq",
 	"timeDelta": 1.0,
 	"uninterruptible": true,

@@ -1,7 +1,7 @@
 # Config parameters for setting up HELICS federate
 properties:
     name: federate1 # unique name for the federate
-    loglevel: 5 # log level
+    loglevel: warning # log level
     coreType: zmq # core type
     timeDelta: 1.0 # time delta (defaults to 1s)
     uninterruptible: true

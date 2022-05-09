@@ -1,10 +1,10 @@
 # HELICS Example Agent
 
 This is an example agent that demonstrates how to integrate with HELICS co-simulation platform. Technical documentation 
-about the simulation framework can be found at https://volttron.readthedocs.io/en/develop/developing-volttron/integrating-simulations/index.html
+about the simulation framework can be found [here](https://volttron.readthedocs.io/en/main/agent-framework/integrating-simulations/Simulation-Integration.html?highlight=integrating%20simulations).
 ## HELICS installation
 For installing setup in Ubuntu based systems, follow the steps described in 
-https://helics.readthedocs.io/en/latest/installation/linux.html
+https://docs.helics.org/en/latest/user-guide/installation/linux.html
 
 ## Install python bindings of HELICS
 
@@ -98,7 +98,7 @@ separate python federate script.
 2. Start HELICS example agent in new terminal at the root of VOLTTRON source directory
     ````
     source env/bin/activate
-    python scripts/install-agent.py -s examples/HELICS/ -c examples/HELICS/helics_federate1.yml -i hexample --start --force
+    vctl install -c examples/HELICS/helics_federate1.yml --vip-identity hexample --start examples/HELICS/
     ````
 3. In another terminal, start another python federate. At the root of VOLTTRON source directory.
     ````

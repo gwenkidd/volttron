@@ -60,7 +60,7 @@ def federate_example(config_path):
 
     try:
         fed = h.helicsCreateCombinationFederateFromConfig(config_path)
-    except h._helics.HelicsException as exc:
+    except h.HelicsException as exc:
         print("Exception occured".format(exc))
         exit(-1)
     federate_name = h.helicsFederateGetName(fed)
@@ -82,13 +82,13 @@ def federate_example(config_path):
         idx = h.helicsFederateGetInputByIndex(fed, i)
         subid["m{}".format(i)] = idx
         status = h.helicsInputSetDefaultComplex(subid["m{}".format(i)], 0, 0)
-        sub_key = h.helicsSubscriptionGetKey(idx)
+        sub_key = h.helicsSubscriptionGetTarget(idx)
         logger.info( 'Registered Subscription ---> {}'.format(sub_key))
 
     for i in range(0, pubkeys_count):
         idx = h.helicsFederateGetPublicationByIndex(fed, i)
         pubid["m{}".format(i)] = idx
-        pub_key = h.helicsPublicationGetKey(idx)
+        pub_key = h.helicsPublicationGetName(idx)
         logger.info( 'Registered Publications ---> {}'.format(pub_key))
 
     print('###############################################################################################')
@@ -121,7 +121,7 @@ def federate_example(config_path):
         for i in range(0, subkeys_count):
             idx = subid["m{}".format(i)]
             value = h.helicsInputGetDouble(idx)
-            key = h.helicsSubscriptionGetKey(idx)
+            key = h.helicsSubscriptionGetTarget(idx)
             print("Value for key: {} is {}".format(key, value))
 
         print('########################   Get from Endpoint  #########################################')
